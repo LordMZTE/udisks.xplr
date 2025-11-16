@@ -20,6 +20,7 @@ public:
     int luaMoveCursor(lua_State *L);
     int luaMountSelected(lua_State *L);
     int luaUnmountSelected(lua_State *L);
+    int luaGetSelectedMountPointOrComplain(lua_State *L);
 
 private:
     void postMessage(std::string str);

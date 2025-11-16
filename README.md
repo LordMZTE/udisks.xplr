@@ -9,6 +9,7 @@ An [xplr](https://github.com/sayanarijit/xplr) plugin that integrates with UDisk
 - Listing Devices
 - Mounting and unmounting devices
 - Live reload when devices are added or removed
+- Change directory to the mount point of a device
 
 ## Installation
 

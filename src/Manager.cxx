@@ -243,3 +243,18 @@ int udisks_xplr::Manager::luaUnmountSelected(lua_State *L) {
 
     return 0;
 }
+
+int udisks_xplr::Manager::luaGetSelectedMountPointOrComplain(lua_State *L) {
+    auto dev = getMaybeDeviceUnderCursor();
+    if (!dev || dev->mounts.empty()) {
+        postMessage("This device is not mounted!");
+        return 0;
+    }
+
+    // `dev->mounts` is a ", " separated list.
+    auto first_mount_end = dev->mounts.find(", ");
+    if (first_mount_end == std::string::npos)
+        first_mount_end = dev->mounts.size();
+    lua_pushlstring(L, dev->mounts.c_str(), first_mount_end);
+    return 1;
+}

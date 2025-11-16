@@ -26,6 +26,12 @@ function M.setup(opts)
         down = function()
             native.moveCursor(1)
         end,
+        changeDirToSelected = function()
+            local mount = native.getSelectedMountPointOrComplain()
+            if mount then
+                return { { ChangeDirectory = mount }, "PopMode" }
+            end
+        end
     }
 
     local layout = {
@@ -73,6 +79,12 @@ function M.setup(opts)
             help = "unmount selected",
             messages = {
                 { CallLuaSilently = "custom.udisks.native.unmountSelected" },
+            },
+        },
+        ["g"] = {
+            help = "change dir to selected",
+            messages = {
+                { CallLuaSilently = "custom.udisks.changeDirToSelected" },
             },
         },
     }

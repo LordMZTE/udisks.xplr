@@ -75,5 +75,11 @@ extern "C" int luaopen_udisks_native(lua_State *L) {
     });
     lua_setfield(L, -2, "unmountSelected");
 
+    lua_pushcfunction(L, [](lua_State *L) {
+        auto mngr = getOrCreateManager(L);
+        return mngr->luaGetSelectedMountPointOrComplain(L);
+    });
+    lua_setfield(L, -2, "getSelectedMountPointOrComplain");
+
     return 1;
 }
