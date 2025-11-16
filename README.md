@@ -19,9 +19,10 @@ UDisks daemon via DBus. This works by loading a native Lua module.
 
 1. Install the prerequesites
 - cmake
+- pkg-config
 - a C++ compiler of your choice
 - luajit
-- libudisks
+- libudisks2
     - gio/glib
 
 2. Configure and install
