@@ -35,6 +35,10 @@ cmake --install build
 ```
 3. Proceed to configuration
 
+### Nix
+This repository contains a nix flake which provides a package. This package contains one directory
+"udisks". The idea is that you symlink this directory into your plugin path.
+
 ## Configuration
 Make sure you have added your plugin directory to `package.path` as described in upstream
 documentation.

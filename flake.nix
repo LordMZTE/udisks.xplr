@@ -19,6 +19,7 @@
           udisks2.dev
         ];
       };
+      packages.default = (pkgs.callPackage ./. { });
     });
 }
 
