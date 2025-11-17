@@ -19,4 +19,8 @@ clangStdenv.mkDerivation {
     luajit
     udisks2.dev
   ];
+
+  postInstall = ''
+    echo "[[$out]]" > $out/udisks/nix_path.lua
+  '';
 }

@@ -37,7 +37,14 @@ cmake --install build
 
 ### Nix
 This repository contains a nix flake which provides a package. This package contains one directory
-"udisks". The idea is that you symlink this directory into your plugin path.
+"udisks". The idea is that you symlink this directory into your plugin path. Additionally, an extra
+`nix_path` module providing the install path is provided. Thus, you can configure the installation
+path like this:
+```lua
+require("udisks").setup {
+    install_path = require "udisks.nix_path",
+}
+```
 
 ## Configuration
 Make sure you have added your plugin directory to `package.path` as described in upstream
