@@ -21,6 +21,6 @@ clangStdenv.mkDerivation {
   ];
 
   postInstall = ''
-    echo "[[$out]]" > $out/udisks/nix_path.lua
+    echo "return [[$out]]" > $out/udisks/nix_path.lua
   '';
 }
